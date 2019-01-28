@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PhotoViewPager">
+        <!-- 是否支持轮播 -->
+        <attr name="isLoop" format="boolean"/>
+        <!-- 轮播间隔时间 -->
+        <attr name="interval_time" format="integer"/>
+        <!-- 是否支持图片缩放查看 -->
+        <attr name="zoomEnable" format="boolean"/>
+        <!-- 是否支持图片拖拽以finish View -->
+        <attr name="isDragEnable" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="BannerViewPager">
+        <!-- 是否轮播 -->
+        <attr name="loop" format="boolean"/>
+        <!-- 轮播间隔时间，单位毫秒 -->
+        <attr name="interval" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="IndicatorView">
+        <attr name="radius" format="dimension"/>
+        <attr name="space" format="dimension"/>
+        <attr name="highlight_clr" format="color"/>
+        <attr name="normal_clr" format="color"/>
+    </declare-styleable>
+</resources>
