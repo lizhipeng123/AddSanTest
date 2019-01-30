@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SoundPool soundPool;
     private HashMap soundPoolMap;
     private String[] strArray = new String[]{"+", "-"};
-    private Random randomArray = new Random();
     private String strRandom;
 
     public void onClick(View vABB) {
@@ -70,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         initSounds();
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -146,9 +150,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
-            case R.id.navigation_home:
+            case R.id.navigation_home://使用帮助
                 Intent intent = new Intent(MainActivity.this, InstructionsActivity.class);
                 startActivity(intent);
+                break;
+            case android.R.id.home://返回
+                this.finish();
                 break;
         }
         return true;
@@ -197,6 +204,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return (int) (Math.random() * (end - start + 1)) + start;
     }
 
+    /**
+     * 符号随机
+     *
+     * @param numArray
+     * @return
+     */
     private static String getRandom(String[] numArray) {
         int randow_inde = (int) (Math.random() * numArray.length);
         return numArray[randow_inde];
